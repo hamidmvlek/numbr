@@ -1,3 +1,5 @@
+![NUMBR](assets/logo.png)
+
 # NUMBR
 
 A shooting game played inside a cockpit navigation display, rebuilt from a photo of a real one taken at 0449Z near the NUMBR waypoint.
