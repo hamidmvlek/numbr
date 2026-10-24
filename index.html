@@ -94,7 +94,7 @@ function inTri(r,f,p){return f<1.5+p && f>-16-p && Math.abs(r)<Math.max(0,-f)*0.
 function newState(){
   return {ver:2,mode:'title',paused:false,h:36,ht:33,hv:0,ax:0,ay:0,spd:4,t:0,time:0,clock:4*60+49.2,
     cells:[],bullets:[],parts:[],rings:[],aliens:[],ashots:[],pickups:[],pending:[],
-    route:[],fixes:[],ai:1,score:0,lives:4,inv:0,heat:0,hot:0,spread:0,hold:0,combo:0,comboT:0,mult:1,
+    route:[],fixes:[],ai:1,score:0,lives:3,inv:0,heat:0,hot:0,spread:0,hold:0,combo:0,comboT:0,mult:1,
     wave:0,queue:[],waveT:0,banner:0,bannerKind:'',clearing:false,waveHit:false,bonus:0,
     glitch:0,glitchAmp:1,vhs:null,shake:0,freeze:0,flag:'',flagCol:'#f2a52a',flagT:0,deadRows:[],overT:0,
     spawnCD:9,strayCD:0,fireCD:0,firing:false,hintA:1,wdir:252,wspd:61,latN:35,lonW:58,sweep:0,beat:0,K:1,newBest:false,diff:0};
@@ -483,7 +483,7 @@ function collect(p){
   p.dead=true;
   if(p.kind==='SPRD'){st.spread=12;flag('SPRD',C.c,2);}
   else if(p.kind==='HOLD'){st.hold=6;flag('HOLD',C.c,2);sfx.holdOn();}
-  else {st.lives=Math.min(6,st.lives+1);st.deadRows.shift();flag('+ACFT',C.c,2);}
+  else {st.lives=Math.min(3,st.lives+1);st.deadRows.shift();flag('+ACFT',C.c,2);}
   st.score+=50;sfx.pickup();
 }
 function hitPlayer(){
@@ -680,7 +680,7 @@ function update(dt){
       st.clearing=true;st.bonus=st.waveHit?0:500*st.wave;st.score+=st.bonus;
       st.bannerKind='clear';st.banner=2.6;sfx.chime();
       if(st.deadRows.length&&!st.waveHit)st.deadRows.shift();
-      if(st.wave%3===0&&st.lives<6){st.lives++;st.deadRows.shift();flag('+ACFT',C.c,2.4);sfx.pickup();}
+      if(st.wave%3===0&&st.lives<3){st.lives++;st.deadRows.shift();flag('+ACFT',C.c,2.4);sfx.pickup();}
     }
   }
 
