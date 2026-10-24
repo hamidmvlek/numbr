@@ -6,6 +6,8 @@ Weather radar returns drift past on the wind. Pixel aliens come in waves; shoot 
 
 **[Play NUMBR](index.html)**
 
-Hold to fire, drag sideways to turn. On a keyboard: arrow keys turn, space fires, P pauses, M mutes.
+Hold to fire, drag sideways to turn, and tap the button in the top right to pause. On a keyboard: arrow keys turn, space fires, P pauses, M mutes.
+
+Your ship is a Sierpinski sigil that fills amber as the gun heats. Destroyed aliens sometimes drop glyphs: SPRD (three-way fire), HOLD (slows traffic), SHLD (a ring that soaks one hit) and +1 (an extra ship). On tall phones an engine panel under the display shows your combo, gun heat and active pickups.
 
 The game is one self-contained HTML file with no build step. The only outside resource is the B612 Mono and VT323 fonts from Google Fonts.
