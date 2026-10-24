@@ -1074,7 +1074,11 @@ addEventListener('keyup',e=>{const k=e.key;
   else if(k==='ArrowRight'||k==='d'||k==='D')keys.r=false;
   else if(k===' '||k==='ArrowUp'||k==='w'||k==='W'||k==='Enter')keys.f=false;});
 addEventListener('blur',()=>{keys.l=keys.r=keys.f=false;ptr=null;if(st)st.firing=false;});
-document.addEventListener('visibilitychange',()=>{if(document.hidden&&st&&st.mode==='play'&&!st.paused)setPause(true);});
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){if(st&&st.mode==='play'&&!st.paused)setPause(true);if(A.ctx&&A.ctx.state==='running')A.ctx.suspend();}
+  else if(A.ctx&&A.ctx.state!=='running'&&!(st&&st.paused))A.ctx.resume();
+});
+addEventListener('pagehide',()=>{if(A.ctx&&A.ctx.state==='running')A.ctx.suspend();});
 
 // Fit the part of the display that carries content (x 200-1060, y 215-1175), not the whole square,
 // so on a phone the instrument runs edge to edge and the empty corners fall off-screen.
